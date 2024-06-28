@@ -1,7 +1,5 @@
-# from langchain import Agent
 from langchain.prompts import PromptTemplate
-from langchain_core.runnables import RunnableSequence
-from langchain_community.llms import Ollama
+from app.utils.llm_singleton import LLMSingleton
 
 class ChapterWriter:
     def __init__(self):
@@ -9,12 +7,10 @@ class ChapterWriter:
             input_variables=["chapter_title", "summary"],
             template="Expand the following summary into a full chapter. Title: {chapter_title}. Summary: {summary}."
         )
-        self.llm = Ollama(
-            base_url='http://localhost:11434',
-            model='llama3',
-        )  
+        self.llm = LLMSingleton.get_instance()
 
     def write_chapter(self, chapter_info):
+        """Takes the chapter info and returns the full text of the chapter."""
         # Debugging statements to check chapter_info
         print("Chapter info received:", chapter_info)
         

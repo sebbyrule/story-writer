@@ -1,5 +1,6 @@
 class InputHandler:
     def get_user_input(self):
+        """Used to get structured user input for the start of the chain."""
         title = input("Enter the title of your story: ").strip()
         genre = input("Enter the genre of your story: ").strip()
         main_characters = input("Enter the main characters (comma-separated): ").strip()

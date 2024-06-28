@@ -1,5 +1,6 @@
 class StructuredOutputHandler:
     def process_output(self, structured_output):
+        """Wraps the structured output in a dictionary."""
         # Debugging statements to check structured output
         print("Structured output received:", structured_output)
         

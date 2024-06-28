@@ -9,6 +9,18 @@ langchain-core = "*"
 requests = "*"
 python-dotenv = "*"
 chromadb = "*"
+fastapi = "*"
+uvicorn = "*"
+pydantic = "*"
+pytest = "*"
+pytest-asyncio = "*"
+pydantic-settings = "*"
+fpdf = "*"
+markdown = "*"
+python-jose = {extras = ["cryptography"], version = "*"}
+passlib = {extras = ["bcrypt"], version = "*"}
+python-multipart = "*"
+alembic = "*"
 
 [dev-packages]
 

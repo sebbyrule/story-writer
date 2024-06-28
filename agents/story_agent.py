@@ -1,17 +1,13 @@
-# from langchain import Agent
 from langchain.prompts import PromptTemplate
-# from langchain_core.runnables import RunnableSequence
-from langchain_community.llms import Ollama
+from app.utils.llm_singleton import LLMSingleton
+from app.services.character_developer import CharacterDeveloper
 class StoryAgent:
     def __init__(self):
         self.prompt_template = PromptTemplate(
             input_variables=["title", "genre", "main_characters", "plot_points"],
             template="Create a structured story outline for a story titled '{title}' in the {genre} genre. The main characters are {main_characters}. The plot points are: {plot_points}. Provide a detailed chapter-by-chapter outline."
         )
-        self.llm = Ollama(
-            base_url='http://localhost:11434',
-            model='llama3',
-        )
+        self.llm = LLMSingleton.get_instance()
         
 
     def create_structured_output(self, user_input):
